@@ -1,0 +1,61 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+{% load static %}
+
+<header class="row bg-black ">
+    <div class="cold-md-4 ms-auto">
+        <img src="{%  static 'portfolio/messicopa.jpg' %}" alt="">
+    </div>
+
+    <div class="cold-md-8 ms-auto">
+
+        <h1>I am <strong>Anthony Valencia</strong> </h1>
+        <h3>"¡Hola! Soy un estudiante apasionado de las Tecnologías de la Información y 
+            la Comunicación (TIC). Mi fascinación por la innovación digital y mi curiosidad 
+            insaciable me impulsan a explorar las últimas tendencias en programación, seguridad 
+            informática y análisis de datos. Con habilidades en desarrollo web, manejo de bases 
+            de datos y solución de problemas tecnológicos, aspiro a contribuir al mundo digital 
+            con creatividad y excelencia. Mi objetivo es fusionar el conocimiento teórico con la 
+            práctica, convirtiéndome en un profesional integral en el emocionante campo de las TIC."</h3>
+            <a href="{%  static 'portfolio/cv.pdf' %}" class="btn btn-primary btn-lg rounded-0 my-3 " target="_black">Download CV</a>
+    </div>
+    
+
+</header>
+
+<div class="row my-4 text-center">
+
+    <h3>My Project</h3>
+
+{% for project in projects %}
+
+<div class="cold-md-4 p-4">
+
+     <div class="card bg-light card-project">    
+        <img src="{{project.image.url}}" alt="project.title" class="card-img-top" />
+        <div class="card-body">
+
+            <h2>{{project.title}}</h2> 
+            <p>{{project.description}}</p>  
+            
+        
+        {% if project.url %}
+        
+        <a href="{{project.url}}"class="btn btn-primary btn-sm" target="_blank">{{project.url}}</a>
+        
+        {% endif %}
+        
+
+        </div>
+
+     </div>
+
+</div>
+
+{% endfor %}
+
+{% endblock %}
+
+</div>
